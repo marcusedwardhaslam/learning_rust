@@ -4,7 +4,7 @@ use uuid::Uuid;
 pub struct User {
     active: bool,
     username: String,
-    uuid: Uuid,
+    pub uuid: Uuid,
 }
 
 impl fmt::Display for User {

@@ -12,4 +12,16 @@ fn main() {
     user_manager.add_user(marcus);
 
     user_manager.print_all_users();
+
+    let users = user_manager.get_users();
+    let uuid_to_find = match users.clone().into_iter().nth(0) {
+        Some(user) => user.uuid.to_string(),
+        None => panic!("no user found"),
+    };
+    let found_user = user_manager.find_user_by_uuid(uuid_to_find);
+
+    match found_user {
+        Some(user) => println!("I found user: {}", user),
+        None => println!("No user found"),
+    }
 }
